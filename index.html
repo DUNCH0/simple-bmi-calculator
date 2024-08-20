@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <title>CSS+HTML+JS</title>
+  </head>
+
+  <body>
+    <div id="header" style="background-color: green; display: flex; justify-content: center; padding-bottom: 15px">
+      <div>
+        <h1>الوزن</h1>
+        <input id="fInput" type="text">
+        <h1>الطول</h1>
+        <input id="sInput" type="text">
+        <button type="submit" id="sub-button" style="background-color: whitesmoke;">Submit to calculate</button>
+        <h5 style="font-size: x-large; text-decoration: underline;"> Your BMI is:
+          <h5 id="bmi_res" style="background-color: whitesmoke;"></h5>
+        </h5>
+        <h1 id="wRes" style="background-color: whitesmoke; height: 50px; width: 400px;"></h1>
+      </div>
+      
+    </div>
+  </body>
+</html>
+
+<script>
+    document.getElementById('sub-button').addEventListener("click", function()
+    {
+      let fInput = document.getElementById('fInput').value
+      let sInput = document.getElementById('sInput').value
+      let BMI_calc = fInput/(sInput * sInput)
+      
+      document.getElementById('bmi_res').innerHTML = BMI_calc
+
+      if(BMI_calc < 18 && BMI_calc > 0)
+      {
+          document.getElementById('wRes').innerHTML = "Thin"
+      }
+      else if(BMI_calc >= 18 && BMI_calc <= 24.9)
+      {
+        document.getElementById('wRes').innerHTML = "Perfect weight";
+      }
+      else if(BMI_calc >= 25 && BMI_calc <= 29.9)
+      {
+        document.getElementById('wRes').innerHTML = "Excessive weight";;
+      }
+      else if(BMI_calc >= 30 && BMI_calc <= 34.9)
+      {
+        document.getElementById('wRes').innerHTML = "First-degree obesity";;
+      }
+      else if(BMI_calc >= 35 && BMI_calc <= 39.9)
+      {
+        document.getElementById('wRes').innerHTML = "Second-degree obesity";
+      }
+      else
+      {
+        document.getElementById('wRes').innerHTML = "Dangerous obestiy";
+      }
+      
+});
+</script>
